@@ -13,7 +13,7 @@ class Student:
         # Set courses enrolled, default empty if not given
         self.course = courses if courses is not None else set()
 
-    def __str__(self): # Return format string when printing the student info
+    def __str__(self): # Return format string when containing the student info
         return (f"ID: {self.id_name[0]}, Name: {self.id_name[1]}, "
                 f"Email: {self.email}, Grades: {self.grades}, Courses: {self.courses}, GPA: {self.calculate_gpa():.2f}")
     
@@ -53,9 +53,9 @@ class StudentRecords:
     def add_student(self, student_id, student_name, email, grades=None, courses=None):
         student = Student(student_id, student_name, email, grades, courses)
         self.students.append(student)
-        return "Student added successfully"
+        return "Student added successfully" #Str message indicating that the student was added successfully
         
-#Update Student 
+#Update a existing student info
     def update_student(self, student_id, email=None, grades=None, courses=None):
         for student in self.students:
             if student.id_name[0] == student_id:
@@ -91,7 +91,7 @@ class StudentRecords:
                 return str(student)
         return "Student not found"
     
-#Search by name of student   
+#Search for student by a partial match of their name
     def search_by_name(self, name):
         matches = []
         for student in self.students:
